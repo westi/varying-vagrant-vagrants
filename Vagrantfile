@@ -85,9 +85,12 @@ Vagrant.configure("2") do |config|
   # 
   # Note that if you find yourself using a Customfile for anything crazy or specifying 
   # different provisioning, then you may want to consider a new Vagrantfile entirely.
-  if File.exists?('Customfile') then
-    eval(IO.read('Customfile'), binding)
-  end
+  config.vm.synced_folder "/Users/kelly/Public/", "/home/vagrant/public/"
+  config.vm.synced_folder "/Users/kelly/Vagrants/vagrant-local/scripts/", "/home/vagrant/scripts/"
+  config.vm.synced_folder "/Users/kelly/Public/", "/home/vagrant/public/"
+  config.vm.synced_folder "/Users/kelly/Sites/", "/srv/www/personal/", :owner => "www-data", :extra => 'dmode=775,fmode=774'
+  config.vm.synced_folder "/Users/kelly/Vagrants/vagrant-local/vip/", "/srv/www/vip/", :owner => "www-data", :extra => 'dmode=775,fmode=774'
+  config.vm.synced_folder "/Users/kelly/Vagrants/vagrant-local/news.clearancejobs.com/wp-content/themes/cj/", "/srv/www/clearancejobs/wp-content/themes/cj/"
 
   # Provisioning
   # 

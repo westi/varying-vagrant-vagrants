@@ -91,6 +91,9 @@ apt_package_check_list=(
 	# Req'd for Webgrind
 	graphviz
 
+	# We want a proper gui available too
+	kcachegrind
+
 	# dos2unix
 	# Allows conversion of DOS style line endings to something we'll have less
 	# trouble with in Linux.
